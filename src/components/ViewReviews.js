@@ -19,7 +19,7 @@ export default function ViewCard(props) {
 		//console.log('The user id: ' + props.user._id )
 		setBlogReviews(props.reviews);
 		// eslint-disable-next-line react-hooks/exhaustive-deps	
-	}, [userToken, props.reviews] ) // check this line
+	}, [/*userToken*/props.user, props.reviews] ) // check this line
 	
 	
 	return (
