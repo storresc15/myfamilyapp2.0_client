@@ -15,7 +15,7 @@ export default function AlbumMain() {
 
 	useEffect(() => {
 		setIsSubmitting(true);
-		fetch(`api/blogs/all`)
+		fetch(`/api/blogs/all`)
 		.then(res => res.json())
 		.then(response => {
 			//cards = response;

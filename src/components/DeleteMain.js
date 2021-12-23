@@ -45,11 +45,11 @@ const DeleteMain = props => {
 	  	
 	  console.log('The token from storage' + userToken);
 	if(props.item === "blog") {
-	urlByType = 'api/blogs/' + props.cardId;
+	urlByType = '/api/blogs/' + props.cardId;
 	actionAfter = "blog";	
 	}
 	if(props.item === "review")	{
-	urlByType = 'api/reviews/' + props.cardId + '/' + props.review._id;
+	urlByType = '/api/reviews/' + props.cardId + '/' + props.review._id;
 	actionAfter = "review"	
 	}
 		

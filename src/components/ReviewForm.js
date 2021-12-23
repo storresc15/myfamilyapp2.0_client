@@ -47,7 +47,7 @@ const ReviewForm = props => {
 		headers: { Authorization: `Bearer ${userToken}`, Accept: 'application/json', "Content-Type": "application/json" },
 		body: JSON.stringify({ "body": description, }),
     };
-    fetch('api/reviews/' + props.cardId, requestOptions)
+    fetch('/api/reviews/' + props.cardId, requestOptions)
       .then(async response => {
         setIsSubmitting(false)
         if (!response.ok) {

@@ -39,7 +39,7 @@ const BasicForm = () => {
 	  //console.log('The Token: ' + userContext.token);
 	  let userToken = localStorage.getItem("user");
 	  console.log('The token from storage' + userToken);
-    fetch(`api/blogs/`, {
+    fetch(`/api/blogs/`, {
       method: "POST",
       credentials: "include",	
 	  body: formData,	
