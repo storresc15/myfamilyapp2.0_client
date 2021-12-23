@@ -4,7 +4,7 @@
 		"/**": "index.html"
 	},
 	"proxies": {
-		"/": {
+		"/api": {
 			"origin": "https://myfamilyapp2-server.herokuapp.com/"
 		}
 	}
