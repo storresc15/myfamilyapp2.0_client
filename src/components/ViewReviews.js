@@ -21,10 +21,10 @@ export default function ViewCard(props) {
 	
 	return (
 		<>
-		{blogReviews &&
+		{blogReviews && user && 
 		<Box sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }}>
 			{blogReviews.map((review) => (
-			<SingleReview key={review._id} review={review} user={user._id} />
+			<SingleReview key={review._id} review={review} user={user._id} /> 
 			))}
 		</Box>
 		}
