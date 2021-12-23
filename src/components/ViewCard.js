@@ -52,7 +52,6 @@ export default function ViewCard(props) {
 	}, [])
 	
 	function displayEditButtons () {
-		console.log('Inside the display edit buttons')
 		return(
 			<>
 			{viewAuthorId === viewUserId &&<Grid item> <EditForm cardTitle={viewCard.title} cardDescription={viewCard.body} cardId={id}></EditForm> 
