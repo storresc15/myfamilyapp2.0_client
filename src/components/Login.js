@@ -32,7 +32,7 @@ const Login = () => {
 
     const genericErrorMessage = "Something went wrong! Please try again later."
 
-    fetch(`/users/login`, {
+    fetch(`/api/users/login`, {
       method: "POST",
 	  withCredentials: true,
       credentials: 'same-origin',
