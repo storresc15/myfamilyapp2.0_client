@@ -43,7 +43,6 @@ const DeleteMain = props => {
 	  let urlByType = "";
 		let actionAfter = "";
 	  	
-	  console.log('The token from storage' + userToken);
 	if(props.item === "blog") {
 	urlByType = '/api/blogs/' + props.cardId;
 	actionAfter = "blog";	
@@ -57,9 +56,8 @@ const DeleteMain = props => {
       method: "DELETE",
       credentials: "include",	
 	  //body: formData,	
-     headers: new Headers({ Authorization: `Bearer ${userToken}`, //"Content-Type": "application/json" 
+     headers: new Headers({ Authorization: `Bearer ${userToken}`, 
 			  }),
-      /*body: JSON.stringify({ "title": title, "body": description, "image": image, "author": "6164e4a85f97e80a95ffb75c"}),*/
     })
       .then(async response => {
         setIsSubmitting(false)
@@ -85,9 +83,7 @@ const DeleteMain = props => {
 			window.location.reload(false);
 			}
           const data = await response.json();
-		  //remove the following token console
-		  console.log(data);	
-		  console.log('The call was succesfull!!')
+		  console.log('The call was succesfull!!' + data)
 
         }
       })

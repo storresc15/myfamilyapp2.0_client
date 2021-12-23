@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react"
 import '../App.css';
 import Box from '@mui/material/Box';
-//import { useStyles } from '../UseStyles';
 import SingleReview from './SingleReview';
 
 export default function ViewCard(props) {
 	
-	//const classes = useStyles();
-	//const { id } = useParams();
+
 	const [blogReviews, setBlogReviews] = useState([]);
 	let userToken = localStorage.getItem("user");
-	//const classes = useStyles();
 	
 	useEffect(() => {
-		//console.log('the id: ' + id);
 		console.log('Th user TOken: ' + userToken);
-		//console.log('The user from props: ' + props.user)
-		//console.log('The user id: ' + props.user._id )
+
 		setBlogReviews(props.reviews);
 		// eslint-disable-next-line react-hooks/exhaustive-deps	
 	}, [/*userToken*/props.user, props.reviews] ) // check this line

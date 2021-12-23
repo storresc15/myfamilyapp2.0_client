@@ -4,7 +4,6 @@ import Paper from '@mui/material/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@mui/material/Avatar';
-//import { useStyles } from '../UseStyles';
 import ReviewEditForm from './ReviewEditForm';
 import DeleteMain from './DeleteMain';
 import { useParams } from "react-router-dom";
@@ -12,7 +11,6 @@ import { useParams } from "react-router-dom";
 export default function SingleReview(props) {
 	
 	const { id } = useParams();
-	//const classes = useStyles();
 	const userId = props.user;
 	const review = props.review;
 	

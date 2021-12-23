@@ -83,10 +83,6 @@ export default function App() {
 	//POC FOR BROWSER STORAGE
 	const [user, setUser] = useState();
 	const [isSubmitting, setIsSubmitting] = useState(false)
-
-  /*useEffect(() => {
-    verifyUser()
-  }, [verifyUser])*/
 	
 	const handleLogout = () => {
     setUser({});
@@ -102,15 +98,13 @@ export default function App() {
       method: "GET",
 	  withCredentials: true,
       //credentials: 'same-origin',
-      headers: new Headers({ Authorization: `Bearer ${userToken}`, //"Content-Type": "application/json" 
+      headers: new Headers({ Authorization: `Bearer ${userToken}`, 
 			  }),	
     }).then(async response => {
       if (response.ok) {
         const data = await response.json()
-		console.log('Inside the USER response ok: ' + data);
 		setIsSubmitting(false);  
         setUser(data)
-		console.log(user);  
       } else {
 		  setIsSubmitting(false); 
 		  return (
@@ -158,7 +152,7 @@ export default function App() {
 				<div className="avatarHeader">
 				<Grid container wrap="nowrap" spacing={2}>
 				 <Grid item xs>
-					 {user.image && <Avatar src={user.image.url /*"https://res.cloudinary.com/ura-app/image/upload/v1639626259/FamilyApp/gnz5ydjznx9j0xmfnqdp.jpg"*/}></Avatar> }
+					 {user.image && <Avatar src={user.image.url }></Avatar> }
 				 </Grid>
 				 <Grid item >
 				<Button onClick={handleLogout}
@@ -192,15 +186,7 @@ export default function App() {
           </Container>
         </div>
 		{/* Using routes */ }
-		  {/*<Route
-			exact
-			path="/"
-			render={() => {
-				return (
-					<Redirect to="/album" /> 
-				)
-			}}
-		/>  */}
+
 		<Route path="/album">
 		{user && <AlbumMain></AlbumMain> }
 		</Route>
@@ -225,7 +211,7 @@ export default function App() {
           Mi Hermosa Familia
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Todos los derechos reservados
+          Derechos reservados
         </Typography>
         <Copyright />
       </footer>

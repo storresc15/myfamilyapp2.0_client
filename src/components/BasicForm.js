@@ -1,5 +1,4 @@
 import TextField from "@mui/material/TextField";
-//import React, { Component } from "react";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@material-ui/core/Button';
@@ -11,14 +10,11 @@ import { useHistory } from "react-router";
 
 const BasicForm = () => {
 	
-	
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [error, setError] = useState("")
   	const [title, setTitle] = useState("")
   	const [description, setDescription] = useState("")
-	//const [image, setImage] = useState("")
 	const history = useHistory();
-
 	
   const formSubmitHandler = e => {
     e.preventDefault()
@@ -33,19 +29,16 @@ const BasicForm = () => {
 	  formData.append('file', fileInput);
 	  formData.append('title', title);
 	  formData.append('body', description);
-	  //formData.append('author', "6164e4a85f97e80a95ffb75c");
 	  
-	  console.log('The Form data: ' + formData);
-	  //console.log('The Token: ' + userContext.token);
 	  let userToken = localStorage.getItem("user");
-	  console.log('The token from storage' + userToken);
+
     fetch(`/api/blogs/`, {
       method: "POST",
       credentials: "include",	
 	  body: formData,	
-     headers: new Headers({ Authorization: `Bearer ${userToken}`, //"Content-Type": "application/json" 
+     headers: new Headers({ Authorization: `Bearer ${userToken}`, 
 			  }),
-      /*body: JSON.stringify({ "title": title, "body": description, "image": image, "author": "6164e4a85f97e80a95ffb75c"}),*/
+
     })
       .then(async response => {
         setIsSubmitting(false)
@@ -75,8 +68,6 @@ const BasicForm = () => {
 		console.log(error);
       })
   }	
-
-
 
     return (
 		<>
@@ -112,12 +103,7 @@ const BasicForm = () => {
         />
         </Grid>
         <Grid item xs={6} md={4}>
-			{/* <TextField 
-				id="standard-basic" 
-				label="Image" 
-				variant="standard"
-				onChange={e => setImage(e.target.value)}
-				value={image}	/>	*/}
+
 			<Button
 				variant="contained"
 				component="label">
@@ -131,7 +117,7 @@ const BasicForm = () => {
         </Grid>
 			</Grid>
 		<br></br>	
-		  <Button type="submit" size="large" color="primary" variant="contained" disabled={isSubmitting}> Save </Button>
+		  <Button type="submit" size="large" color="primary" variant="contained" disabled={isSubmitting}> Salvar </Button>
 	</form>
 	<br></br>	
 	{isSubmitting && <CircularProgress />}	
@@ -139,6 +125,5 @@ const BasicForm = () => {
 </>
     );
   }
-
 
 export default BasicForm;

@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react"
 import '../App.css';
-//import Button from '@material-ui/core/Button';
-/*import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography'; 
-import { useStyles } from './UseStyles'; */
 import ImageListItem from '@mui/material/ImageListItem';
 import Grid from '@mui/material/Grid';
 import Container from '@material-ui/core/Container';
 import { useStyles } from '../UseStyles';
-//import { UserContext } from "../context/UserContext"
 import { useParams } from "react-router-dom";
 import EditForm from "./EditForm";
 import ViewReviews from "./ViewReviews";
@@ -23,7 +14,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 export default function ViewCard(props) {
 	
-	//const classes = useStyles();
 	const { id } = useParams();
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [viewCard, setViewCard] = useState("");
@@ -37,37 +27,22 @@ export default function ViewCard(props) {
 	
 	useEffect(() => {
 		setIsSubmitting(true);
-		console.log('the id: ' + id);
-		console.log('Th user TOken: ' + userToken);
-		console.log('The user from props: ' + props.user)
-		//console.log('The user id: ' + props.user._id )
 		if(props.user)setUserId(props.user._id);
 		fetch('/api/blogs/' + id, {
       method: "GET",
       credentials: "include",	
-	  //body: formData,	
-     headers: new Headers({ Authorization: `Bearer ${userToken}`, //"Content-Type": "application/json" 
+     headers: new Headers({ Authorization: `Bearer ${userToken}`,  
 			  }),
-      /*body: JSON.stringify({ "title": title, "body": description, "image": image, "author": "6164e4a85f97e80a95ffb75c"}),*/
     })
 		.then(res => res.json())
 		.then(response => {
 			setIsSubmitting(false);
-			//cards = response;
-			console.log('Checking response desc: ' + response.body)
-			console.log('Checking response title: ' + response.title)
-			console.log('Checking response author: ' + response.author.firstName)
-			console.log('Checking response author ID: ' + response.author._id)
 			setViewCard(response);
 			setViewUrl(response.image.url);
 			setAuthorId(response.author._id);
 			setAuthor(response.author.firstName);
 			//setAuthorId(response.author._id);
 			setBlogReviews(response.reviews);
-			console.log('The author ID: ' + viewAuthorId)
-			console.log('Card Viewed: ' + viewCard);
-			//console.log('The album: ' + albumCards);
-			//console.log("The items retrieved: " + response[0].title)
 		})
 		.catch(function(error) {
 			setIsSubmitting(false);
@@ -107,8 +82,6 @@ export default function ViewCard(props) {
 			{viewAuthor &&	<p>Autor: {viewAuthor}</p> } 
 	<Grid container spacing={2} justifyContent="left">
 		{viewUserId && displayEditButtons() }
-		{/*viewAuthorId === props.user._id && <Grid item> <EditForm cardTitle={viewCard.title} cardDescription={viewCard.body} cardId={id}></EditForm> </Grid> */} 
-		{ /*viewAuthorId === props.user._id && <Grid item> <Button size="small" variant="contained" color="secondary" > Delete </Button> </Grid> */ }
 	</Grid>
 			</Grid>
 			<Grid item xs={6} md={4}>
@@ -121,6 +94,5 @@ export default function ViewCard(props) {
 		</Container>
 	</>
 	
-	);
-	
+	);	
 }

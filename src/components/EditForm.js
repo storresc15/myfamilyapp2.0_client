@@ -31,8 +31,6 @@ const EditForm = props => {
 	const [error, setError] = useState("")
   	const [title, setTitle] = useState(props.cardTitle)
   	const [description, setDescription] = useState(props.cardDescription)
-	//const [image, setImage] = useState("")
-
 	
 	const formSubmitHandler = e => {
 		
@@ -48,18 +46,15 @@ const EditForm = props => {
 	  formData.append('file', fileInput);
 	  formData.append('title', title);
 	  formData.append('body', description);
-	  //formData.append('author', "6164e4a85f97e80a95ffb75c");
 	  
-	  console.log('The Form data: ' + formData);
 	  let userToken = localStorage.getItem("user");
-	  console.log('The token from storage' + userToken);
+
     fetch('/api/blogs/' + props.cardId, {
       method: "POST",
       credentials: "include",	
 	  body: formData,	
-     headers: new Headers({ Authorization: `Bearer ${userToken}`, //"Content-Type": "application/json" 
+     headers: new Headers({ Authorization: `Bearer ${userToken}`, 
 			  }),
-      /*body: JSON.stringify({ "title": title, "body": description, "image": image, "author": "6164e4a85f97e80a95ffb75c"}),*/
     })
       .then(async response => {
         setIsSubmitting(false)
@@ -76,12 +71,10 @@ const EditForm = props => {
             setError(genericErrorMessage)
           }
         } else {
-		  //history.push("/album");
 		window.location.reload(false);	
           const data = await response.json();
-		  //remove the following token console
-		  console.log(data);	
-		  console.log('The call was succesfull!!')
+
+		  console.log('The call was succesfull!!' + data)
 
         }
       })
@@ -109,7 +102,7 @@ const EditForm = props => {
         <Fade in={open}>
           <Box sx={style}>
 			  {error && <Stack sx={{ width: '100%' }} spacing={2}>
-		  <Alert severity="error">{error}
+		  <Alert severity="success">
 		  </Alert>
 	  </Stack> }
             <Typography id="transition-modal-title" variant="h6" component="h2">

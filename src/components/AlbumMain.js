@@ -18,11 +18,9 @@ export default function AlbumMain() {
 		fetch(`/api/blogs/all`)
 		.then(res => res.json())
 		.then(response => {
-			//cards = response;
 			setAlbumCards(response);
 			setIsSubmitting(false);
-			//console.log('The album: ' + albumCards);
-			//console.log("The items retrieved: " + response[0].title)
+
 		})
 		.catch(function(error) {
            console.log('Fetch error: ' + error.message);

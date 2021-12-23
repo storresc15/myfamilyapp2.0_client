@@ -43,7 +43,7 @@ export default function SingleCard(props) {
                   <CardActions key={card.id}>
 					  <Link to={"/view/" + card._id} key={card.id}>	
                     <Button size="large" variant="contained" color="primary" key={card.id}>
-                      Ver Foto
+                      Ver Publicación
                     </Button>
 					  </Link>	  
 					  { /*<Button size="small" color="primary" key={card.id}>

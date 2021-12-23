@@ -39,10 +39,8 @@ const ReviewForm = props => {
     setError("")
 
     const genericErrorMessage = "Something went wrong! Please try again later."
-	console.log('The id of params: ' + id)
-		console.log('The description: ' + description)
+
 	  let userToken = localStorage.getItem("user");
-	  console.log('The token from storage' + userToken);
 		const requestOptions = {
 		method: "POST",
 		headers: { Authorization: `Bearer ${userToken}`, Accept: 'application/json', "Content-Type": "application/json" },
@@ -67,10 +65,8 @@ const ReviewForm = props => {
 		  //history.push("/album");
 			window.location.reload(false);
           const data = await response.json();
-		  console.log(data);
-			console.log(error);
 		  //remove the following token console
-		  console.log('The call was succesfull!!')
+		  console.log('The call was succesfull!!' + data)
 
         }
       })

@@ -22,7 +22,6 @@ const Login = () => {
 	const cookies = new Cookies();
 	
 	//POC FOR BROWSER STORAGE
-	//const [user, setUser] = useState();
 	const history = useHistory();
 	
 	const formSubmitHandler = e => {
@@ -55,22 +54,13 @@ const Login = () => {
           }
         } else {
           const data = await response.json()
-		  //remove the following token console
-		  console.log('The login was succesfull!!')
-		  console.log('The token: ' + data.token);
+
 			//POC For cookie
-			//cookies.set(data.refreshToken);
 			cookies.set('refreshToken', data.token, {secure: true, maxAge : 2592000000, path: "/"})
           setUserContext(oldValues => {
             return { ...oldValues, token: data.token }
           })
 		  //setUserContext({token: data.token});	
-		console.log('And the context: ' + userContext.token)	
-			//POC FOR LOCAL STORAGE
-		console.log('data.user below: ')
-		console.log(data.user);
-		console.log('The complete data received below: ')	
-		console.log(data);	
 		localStorage.setItem('user', data.token)
 		history.push('/');
 		window.location.reload(false);

@@ -24,7 +24,6 @@ const Register = () => {
     setIsSubmitting(true)
     setError("")
 
-	/*console.log(JSON.stringify({"firstName": firstName, "lastName": lastName, "username": email, "email": email, "password": password}));*/
     const genericErrorMessage = "Something went wrong! Please try again later."
 	const fileInput = document.querySelector('input[type="file"]').files[0] ;
 	  const formData = new FormData();
@@ -35,15 +34,13 @@ const Register = () => {
 	  formData.append('username', email);
 	  formData.append('email', email);
 	  formData.append('password', password);
-	  //formData.append('author', "6164e4a85f97e80a95ffb75c");
 	  
 	  console.log('The Form data: ' + formData);
 
     fetch(`/api/users/signup`, {
       method: "POST",
       credentials: "include",
-      //headers: { "Content-Type": "application/json" },
-      body: formData,/*JSON.stringify({"firstName": firstName, "lastName": lastName, "username": email, "email": email, "password": password}),*/
+      body: formData,
     })
       .then(async response => {
         setIsSubmitting(false)
@@ -61,9 +58,6 @@ const Register = () => {
           }
         } else {
           const data = await response.json()
-          /*setUserContext(oldValues => {
-            return { ...oldValues, token: data.token }
-          })*/
 		localStorage.setItem('user', data.token)
 		history.push('/');
 		window.location.reload(false);	
