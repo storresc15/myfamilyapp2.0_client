@@ -42,7 +42,7 @@ export default function ViewCard(props) {
 		console.log('The user from props: ' + props.user)
 		//console.log('The user id: ' + props.user._id )
 		if(props.user)setUserId(props.user._id);
-		fetch('/blogs/' + id, {
+		fetch('api/blogs/' + id, {
       method: "GET",
       credentials: "include",	
 	  //body: formData,	

@@ -53,7 +53,7 @@ const EditForm = props => {
 	  console.log('The Form data: ' + formData);
 	  let userToken = localStorage.getItem("user");
 	  console.log('The token from storage' + userToken);
-    fetch('/blogs/' + props.cardId, {
+    fetch('api/blogs/' + props.cardId, {
       method: "POST",
       credentials: "include",	
 	  body: formData,	

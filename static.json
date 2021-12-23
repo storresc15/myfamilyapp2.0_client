@@ -2,5 +2,10 @@
 	"root": "build/",
 	"routes": {
 		"/**": "index.html"
+	},
+	"proxies": {
+		"/api": {
+			"origin": "https://myfamilyapp2-server.herokuapp.com"
+		}
 	}
 }

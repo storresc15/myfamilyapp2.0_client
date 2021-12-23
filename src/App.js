@@ -98,7 +98,7 @@ export default function App() {
 	setIsSubmitting(true);	
 	let userToken = localStorage.getItem("user");
 	if(userToken) {	
-	fetch('/users/me', {
+	fetch('api/users/me', {
       method: "GET",
 	  withCredentials: true,
       //credentials: 'same-origin',

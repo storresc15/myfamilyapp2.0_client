@@ -47,7 +47,7 @@ const ReviewForm = props => {
 		headers: { Authorization: `Bearer ${userToken}`, Accept: 'application/json', "Content-Type": "application/json" },
 		body: JSON.stringify({ "body": description, }),
     };
-    fetch('/reviews/' + props.cardId, requestOptions)
+    fetch('api/reviews/' + props.cardId, requestOptions)
       .then(async response => {
         setIsSubmitting(false)
         if (!response.ok) {
@@ -110,7 +110,7 @@ const ReviewForm = props => {
 			<div className="textFieldsInModal">	
 		<TextField
           id="standard-multiline-static"
-          label="Descripción"	
+          label="Descripciรณn"	
           multiline
           rows={5}
           variant="standard"

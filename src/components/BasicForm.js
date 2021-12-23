@@ -39,7 +39,7 @@ const BasicForm = () => {
 	  //console.log('The Token: ' + userContext.token);
 	  let userToken = localStorage.getItem("user");
 	  console.log('The token from storage' + userToken);
-    fetch(`/blogs/`, {
+    fetch(`api/blogs/`, {
       method: "POST",
       credentials: "include",	
 	  body: formData,	
@@ -103,7 +103,7 @@ const BasicForm = () => {
         />	
 		<TextField
           id="standard-multiline-static"
-          label="Descripción"
+          label="Descripciรณn"
           multiline
           rows={5}
           variant="standard"
