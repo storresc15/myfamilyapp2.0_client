@@ -107,7 +107,7 @@ const ReviewForm = props => {
 			<div className="textFieldsInModal">	
 		<TextField
           id="standard-multiline-static"
-          label="Descripciรณn"	
+          label="Descripcion"	
           multiline
           rows={5}
           variant="standard"
